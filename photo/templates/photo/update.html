@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} - Update {% endblock %}
+
+{% block content %}
+
+<div class = "row">
+    <div class = "col-md-2"></div>
+    <div class="col-md-8 panel panel-default">
+        <form action = "" method = "post" enctype="multipart/form-data">
+            {{form.as_p}} <!--as_p : p태그 사이에 form이 있다. form : 이미지를 업로드 하는 창, 텍스트 창이 뜸. models.py의 PhotoUploadView 클래스 기반-->
+            {% csrf_token %}
+            <input type = "submit" class = "btn btn-primary" value = "update">
+        </form>
+
+    </div>
+    <div class = "col-md-2"></div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} - List {% endblock %}
+
+{% block content %}
+    {% for post in photos %}
+        <div class = "row">
+            <div class = "col-md-2"></div>
+            <div class="col-md-8 panel panel-default">
+                <p><img src = "{{post.photo.url}}" style = "width:100%;"></p>
+                <button type = "button" class = "btn btn-xs btn-info">
+                    {{ post.photo.username }} <!--기능x 유저네임을 보여주기 위한 버튼-->
+                </button>
+                <p>{{ post.text|linebreaksbr }}</p> <!--사진에 대한 설명. 개행문자(엔터)가 오면 br태그로 바꾸기-->
+                <p class = text-right>
+                    <a href = "{% url 'photo:photo_detail'  pk=post.id %}" class = "btn btn-xs btn-success">수정하기</a>
+                </p>
+            </div>
+            <div class = "col-md-2"></div>
+        </div>
+    {% endfor %}
+{% endblock %}
